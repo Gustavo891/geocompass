@@ -1,0 +1,87 @@
+/* Vamos salvar os modos de jogo primeiramente em json, com os modos:
+- nome do modo
+- imagem do modo
+- descrição
+e os desafios
+*/
+{
+    "modos": [
+        {
+            "modo": "modo1",
+            "imageTitle": "",
+            "desc": "",
+            "quantidade": 2,
+            "nivel": 1,
+            "quiz": [
+                { 
+                    "image": "/images/modo1/image1.png",
+                    "resposta": "xxx",
+                    "dica1": "",
+                    "dica2": "",
+                    "dica3": "",
+                    "dica4": "",
+                    "dica5": ""
+                },
+                { 
+                    "image": "/images/modo1/image2.png",
+                    "resposta": "xxx",
+                    "dica1": "",
+                    "dica2": "",
+                    "dica3": "",
+                    "dica4": "",
+                    "dica5": ""
+                }
+            ]
+        },
+        {
+            "modo": "modo2",
+            "quantidade": 2,
+            "nivel": 2,
+            "quiz": [
+                { 
+                    "image": "/images/modo2/image1.png",
+                    "resposta": "yyy",
+                    "dica1": "",
+                    "dica2": "",
+                    "dica3": "",
+                    "dica4": "",
+                    "dica5": ""
+                },
+                { 
+                    "image": "/images/modo2/image2.png",
+                    "resposta": "yyy",
+                    "dica1": "",
+                    "dica2": "",
+                    "dica3": "",
+                    "dica4": "",
+                    "dica5": ""
+                }
+            ]
+        },
+        {
+            "modo": "modo3",
+            "quantidade": 2,
+            "nivel": 3,
+            "quiz": [
+                { 
+                    "image": "/images/modo3/image1.png",
+                    "resposta": "zzz",
+                    "dica1": "",
+                    "dica2": "",
+                    "dica3": "",
+                    "dica4": "",
+                    "dica5": ""
+                },
+                { 
+                    "image": "/images/modo3/image2.png",
+                    "resposta": "zzz",
+                    "dica1": "",
+                    "dica2": "",
+                    "dica3": "",
+                    "dica4": "",
+                    "dica5": ""
+                }
+            ]
+        }
+    ]
+}
