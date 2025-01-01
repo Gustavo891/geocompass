@@ -1,0 +1,196 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Outfit:wght@100..900&display=swap");
+/* Garantir altura total da página e fixar o footer no final */
+
+* {
+  font-family: "Fira Sans", serif;
+}
+
+header nav ul li.selected a {
+  text-decoration: underline; /* Adiciona sublinhado */
+  color: #006400; /* Cor verde para destacar o item */
+  font-weight: bold; /* Deixa o texto em negrito */
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Container principal que engloba o conteúdo */
+/* Estilo do cabeçalho */
+header {
+  background-color: #d9f9d9;
+  padding: 20px 0;
+}
+
+header nav {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+header nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+header nav ul li a:hover {
+  color: #006400;
+}
+nav img {
+  width: 42px;
+}
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 48px;
+  flex: 1; /* Faz o container crescer para ocupar o espaço disponível */
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* Adiciona espaço entre as seções */
+}
+
+/* Banner */
+.banner {
+  background-image: url("../images/banner.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+  border-radius: 32px;
+}
+
+.banner-content h1 {
+  font-size: 36px;
+  font-family: "Fira Sans", serif;
+  font-weight: 500;
+  margin: 0 0 10px;
+}
+
+.banner-content p {
+  font-size: 18px;
+  font-family: "Fira Sans", serif;
+  font-weight: 200;
+  margin: 0 0 20px;
+}
+
+.banner-content button {
+  background-color: #006400;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.banner-content button:hover {
+  background-color: #004d00;
+}
+
+/* Sobre nós */
+.about {
+  display: flex;
+  align-items: center;
+  gap: 80px; /* Espaço entre o texto e a imagem */
+  padding: 80px;
+  background-color: #02b346;
+  overflow: hidden;
+  border-radius: 32px;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-content h2 {
+  font-size: 48px;
+  font-family: "Fira Sans", serif;
+  font-weight: 500;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.about-content p {
+  font-size: 16px;
+  font-family: "Fira Sans", serif;
+  font-weight: 300;
+  text-align: justify;
+  line-height: 1.5;
+  color: #ebebeb;
+}
+
+.about img {
+  width: 50%;
+  border-radius: 32px;
+}
+
+/* Rodapé */
+footer {
+  background-color: #fff;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px;
+  color: #000;
+  box-sizing: border-box;
+}
+
+footer form {
+  margin: 20px 0;
+}
+
+footer input[type="email"] {
+  padding: 10px;
+  width: 300px;
+  max-width: 90%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+
+footer button {
+  background-color: #006400;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer button:hover {
+  background-color: #004d00;
+}
+
+footer .links {
+  margin-top: 10px;
+}
+
+footer .links a {
+  text-decoration: none;
+  color: #006400;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+footer .links a:hover {
+  text-decoration: underline;
+}
