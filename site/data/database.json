@@ -1,0 +1,56 @@
+{
+    "modos": [
+      {
+        "modo": "Maravilhas do Mundo Moderno",
+        "imageTitle": "../images/game1/cristo1.jpg",
+        "desc": "Descrição do modo 1",
+        "quantidade": 2,
+        "nivel": 1,
+        "challenges": [
+          {
+            "mapChallenge": {
+              "image1": "../images/game1/cristo1.jpg",
+              "image2": "../images/game1/cristo3.jpg",
+              "image3": "../images/game1/cristo1.jpg",
+              "lat": -23.55052,
+              "long": -46.633308
+            },
+            "quiz": {
+              "perg": "Qual é a capital do Brasil?",
+              "opcao1": "Brasília",
+              "opcao2": "Rio de Janeiro",
+              "opcao3": "São Paulo",
+              "opcao4": "Salvador",
+              "resposta": 1
+            },
+            "dataChallenge": {
+              "perg": "Quando foi inaugrada?",
+              "data": "2025-01-02"
+            }
+          },
+          {
+            "mapChallenge": {
+                "image1": "../images/game1/cristo1.jpg",
+                "image2": "../images/game1/cristo3.jpg",
+                "image3": "../images/game1/cristo1.jpg",
+                "lat": -23.55052,
+                "long": -46.633308
+              },
+            "quiz": {
+              "perg": "Qual é a capital da França?",
+              "opcao1": "Berlim",
+              "opcao2": "Paris",
+              "opcao3": "Roma",
+              "opcao4": "Madrid",
+              "resposta": 2
+            },
+            "dataChallenge": {
+              "perg": "Quando foi inaugrada?",
+              "data": "2025-01-02"
+            }
+          }
+        ]
+      }
+    ]
+  }
+  

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Modos de Jogo</title>
+    <link rel="stylesheet" href="../css/game.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="../codes/game.js"></script>
+    <style></style>
+  </head>
+  <header>
+    <nav>
+      <ul>
+        <img src="../images/icon.png" alt="" />
+        <li><a href="#">Início</a></li>
+        <li class="selected"><a href="#">Modos</a></li>
+        <li><a href="#">Custom</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Ajuda</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <div class="container">
+      <h1 id="modo-nome">Modo de Jogo</h1>
+      <h2 id="desafio-info">Desafio 1/X</h2>
+      <section class="game-section">
+        <div class="slider-wrapper">
+          <div class="slider">
+            <img id="slide-1" src="" />
+            <img id="slide-2" src="" />
+            <img id="slide-3" src="" />
+          </div>
+          <div class="slider-nav">
+            <a href="#slide-1"></a>
+            <a href="#slide-2"></a>
+            <a href="#slide-3"></a>
+          </div>
+        </div>
+        <div id="map"></div>
+      </section>
+      <div class="quiz-container">
+        <h3 id="quiz-pergunta" class="pergunta">Pergunta?</h3>
+        <button onClick="verificarResposta(event)" data-option="1" id="opcao1">
+          Opção 1
+        </button>
+        <button onClick="verificarResposta(event)" data-option="2" id="opcao2">
+          Opção 2
+        </button>
+        <button onClick="verificarResposta(event)" data-option="3" id="opcao3">
+          Opção 3
+        </button>
+        <button onClick="verificarResposta(event)" data-option="4" id="opcao4">
+          Opção 4
+        </button>
+      </div>
+      <div class="data-container">
+        <h3 id="data-pergunta" class="pergunta">Pergunta2?</h3>
+        <input type="date" name="" id="data-response" />
+      </div>
+      <button id="next-button">Próximo</button>
+    </div>
+
+    <footer>
+      <p>Receba notificações sobre futuras atualizações.</p>
+      <form>
+        <input type="email" placeholder="Insira seu e-mail." />
+        <button type="submit">Enviar</button>
+      </form>
+      <p>© 2024 Micropole Digital - Todos os direitos reservados.</p>
+      <div class="links">
+        <a href="#">Políticas de Privacidade</a>
+        <a href="#">Termos e Condições</a>
+        <a href="#">Cookies</a>
+      </div>
+    </footer>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+      // Criar o mapa com uma visão global
+      var map = L.map("map").setView([0, 0], 2); // Posição inicial no centro do mundo (0, 0) com zoom 2
+
+      // Adicionar o tile layer (camada de mapa)
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(map);
+
+      // Evento de clique no mapa
+      map.on("click", function (e) {
+        // Captura as coordenadas do clique
+        var lat = e.latlng.lat;
+        var lng = e.latlng.lng;
+
+        // Exibir as coordenadas no elemento HTML
+        document.getElementById("coordinates").innerText =
+          "Coordenadas clicadas: " + lat.toFixed(4) + ", " + lng.toFixed(4);
+      });
+    </script>
+  </body>
+</html>
