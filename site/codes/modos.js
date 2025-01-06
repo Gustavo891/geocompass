@@ -61,7 +61,7 @@ function renderModos(modosPorNivel) {
         questionImg.alt = "Ícone de questões";
 
         const questionText = document.createElement("h2");
-        questionText.textContent = `Qnt questões: ${modo.qntQuestoes}`; // Número de questões do modo
+        questionText.textContent = `${modo.quantidade}`; // Número de questões do modo
 
         questionsDiv.appendChild(questionImg);
         questionsDiv.appendChild(questionText);

@@ -1,9 +1,25 @@
+
+// Criar o mapa com uma visão global
+var map = L.map("map").setView([0, 0], 2); // Posição inicial no centro do mundo (0, 0) com zoom 2
+
+// Adicionar o tile layer (camada de mapa)
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+
+// Evento de clique no mapa
+map.on("click", function (e) {  
+  // Captura as coordenadas do clique
+  var lat = e.latlng.lat;
+  var lng = e.latlng.lng;
+
+  // Exibir as coordenadas no elemento HTML
+  window.alert("Coordenadas clicadas: " + lat.toFixed(4) + ", " + lng.toFixed(4))
+});
 var modo = JSON.parse(localStorage.getItem('modo'));
-
 console.log(modo);
-
 var currentChallengeIndex = 0; // Índice do desafio atual
-
 var selecionado = 0;
 
 function carregarSlider() {
@@ -134,6 +150,8 @@ function carregarProximoDesafio() {
   }
 
 }
+
+
 
 // Carregar os sliders quando a página for carregada
 window.onload = carregarSlider;

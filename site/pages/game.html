@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/game.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="../codes/game.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <style></style>
   </head>
   <header>
@@ -76,27 +76,6 @@
         <a href="#">Cookies</a>
       </div>
     </footer>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-      // Criar o mapa com uma visão global
-      var map = L.map("map").setView([0, 0], 2); // Posição inicial no centro do mundo (0, 0) com zoom 2
-
-      // Adicionar o tile layer (camada de mapa)
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution:
-          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      }).addTo(map);
-
-      // Evento de clique no mapa
-      map.on("click", function (e) {
-        // Captura as coordenadas do clique
-        var lat = e.latlng.lat;
-        var lng = e.latlng.lng;
-
-        // Exibir as coordenadas no elemento HTML
-        document.getElementById("coordinates").innerText =
-          "Coordenadas clicadas: " + lat.toFixed(4) + ", " + lng.toFixed(4);
-      });
-    </script>
+    <script src="../codes/game.js"></script>
   </body>
 </html>
