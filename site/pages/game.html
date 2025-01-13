@@ -14,11 +14,11 @@
     <nav>
       <ul>
         <img src="../images/icon.png" alt="" />
-        <li><a href="#">Início</a></li>
-        <li class="selected"><a href="#">Modos</a></li>
-        <li><a href="#">Custom</a></li>
-        <li><a href="#">Sobre</a></li>
-        <li><a href="#">Ajuda</a></li>
+        <li><a href="../pages/game.html">Início</a></li>
+        <li class=""><a href="../pages/modos.html">Modos</a></li>
+        <li><a href="../pages/game.html">Custom</a></li>
+        <li><a href="../pages/game.html">Sobre</a></li>
+        <li><a href="../pages/game.html">Ajuda</a></li>
       </ul>
     </nav>
   </header>
@@ -26,7 +26,7 @@
     <div class="container">
       <h1 id="modo-nome">Modo de Jogo</h1>
       <h2 id="desafio-info">Desafio 1/X</h2>
-      <section class="game-section">
+      <section id="game-section" class="game-section">
         <div class="slider-wrapper">
           <div class="slider">
             <img id="slide-1" src="" />
@@ -41,7 +41,7 @@
         </div>
         <div id="map"></div>
       </section>
-      <div class="quiz-container">
+      <div id="quiz-container" class="quiz-container">
         <h3 id="quiz-pergunta" class="pergunta">Pergunta?</h3>
         <button onClick="verificarResposta(event)" data-option="1" id="opcao1">
           Opção 1
@@ -56,10 +56,11 @@
           Opção 4
         </button>
       </div>
-      <div class="data-container">
+      <div id="data-container" class="data-container">
         <h3 id="data-pergunta" class="pergunta">Pergunta2?</h3>
         <input type="date" name="" id="data-response" />
       </div>
+      <button onClick="advance(event)" id="advance-button">Avançar</button>
       <button id="next-button">Próximo</button>
     </div>
 

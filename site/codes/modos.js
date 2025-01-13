@@ -69,7 +69,7 @@ function renderModos(modosPorNivel) {
         // Criar o link para a imagem do modo
         const link = document.createElement("a");
         link.href = "game.html"; // Página para onde irá ao clicar
-        link.target = "_blank";
+      
 
         // Armazenar o objeto 'modo' no localStorage ao clicar
         link.addEventListener("click", function () {
