@@ -12,8 +12,8 @@
               "image1": "../images/game1/cristo1.jpg",
               "image2": "../images/game1/cristo3.jpg",
               "image3": "../images/game1/cristo1.jpg",
-              "lat": -23.55052,
-              "long": -46.633308
+              "lat": -22.951916,
+              "long": -43.210466
             },
             "quiz": {
               "perg": "Qual é a capital do Brasil?",
@@ -21,7 +21,7 @@
               "opcao2": "Rio de Janeiro",
               "opcao3": "São Paulo",
               "opcao4": "Salvador",
-              "resposta": 1
+              "resposta": 0
             },
             "dataChallenge": {
               "perg": "Quando foi inaugrada?",
@@ -42,7 +42,7 @@
               "opcao2": "Paris",
               "opcao3": "Roma",
               "opcao4": "Madrid",
-              "resposta": 2
+              "resposta": 1
             },
             "dataChallenge": {
               "perg": "Quando foi inaugrada?",

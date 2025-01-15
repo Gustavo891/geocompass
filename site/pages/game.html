@@ -14,7 +14,7 @@
     <nav>
       <ul>
         <img src="../images/icon.png" alt="" />
-        <li><a href="../pages/game.html">Início</a></li>
+        <li><a href="../pages/index.html">Início</a></li>
         <li class=""><a href="../pages/modos.html">Modos</a></li>
         <li><a href="../pages/game.html">Custom</a></li>
         <li><a href="../pages/game.html">Sobre</a></li>
@@ -26,20 +26,57 @@
     <div class="container">
       <h1 id="modo-nome">Modo de Jogo</h1>
       <h2 id="desafio-info">Desafio 1/X</h2>
-      <section id="game-section" class="game-section">
-        <div class="slider-wrapper">
-          <div class="slider">
-            <img id="slide-1" src="" />
-            <img id="slide-2" src="" />
-            <img id="slide-3" src="" />
-          </div>
-          <div class="slider-nav">
-            <a href="#slide-1"></a>
-            <a href="#slide-2"></a>
-            <a href="#slide-3"></a>
+      <section id="answer">
+        <div class="title-answer">RESULTADO #1</div>
+        <div class="map-answer answer-card">
+          <h1>ADVINHE O LOCAL</h1>
+          <div class="map-section">
+            <img src="../images/icons/icons8-marcador-de-mapa-96.png" alt="" />
+            <div class="respostas">
+              <h2>Tentativa: <span id="map-attempt">Rio de Janeiro</span></h2>
+              <h2>Resposta: <span id="map-answer">Rio de Janeiro</span></h2>
+            </div>
           </div>
         </div>
-        <div id="map"></div>
+        <div class="map-answer answer-card">
+          <h1>PERGUNTA & RESPOSTA</h1>
+          <div class="map-section">
+            <img src="../images/icons/icons8-pergunte-96.png" alt="" />
+            <div class="respostas">
+              <h2>Tentativa: <span id="quiz-attempt">São Paulo</span></h2>
+              <h2>Resposta: <span id="quiz-answer">Brasilia</span></h2>
+            </div>
+          </div>
+        </div>
+        <div class="map-answer answer-card">
+          <h1>QUAL A DATA?</h1>
+          <div class="map-section">
+            <img src="../images/icons/icons8-calendário-96.png" alt="" />
+            <div class="respostas">
+              <h2>Tentativa: <span id="date-attempt">01/02/2024</span></h2>
+              <h2>Resposta: <span id="date-answer">04/02/2024</span></h2>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section id="game-section" class="game-section">
+        <h1>Qual o local da imagem?</h1>
+        <div class="mapa-sec">
+          <div class="slider-wrapper">
+            <div class="slider">
+              <img id="slide-1" src="" />
+              <img id="slide-2" src="" />
+              <img id="slide-3" src="" />
+            </div>
+            <div class="slider-nav">
+              <a href="#slide-1"></a>
+              <a href="#slide-2"></a>
+              <a href="#slide-3"></a>
+            </div>
+          </div>
+          <div id="map"></div>
+        </div>
+        <div id="cidade-div">Cidade: <span id="cidade-info"></span></div>
       </section>
       <div id="quiz-container" class="quiz-container">
         <h3 id="quiz-pergunta" class="pergunta">Pergunta?</h3>
