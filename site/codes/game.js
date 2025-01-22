@@ -6,6 +6,11 @@ const cidadeDiv = document.getElementById("cidade-div");
 const cidadeElement = document.getElementById("cidade-info");
 const answerCard = document.getElementById("answer");
 const date = document.getElementById("data-response");
+const resultCard = document.getElementById("result");
+
+const resultImg = document.getElementById("result-img");
+const resultText = document.getElementById("result-text");
+const resultPoints = document.getElementById("result-points");
 
 var map = L.map("map").setView([0, 0], 2); // Posição inicial no centro do mundo (0, 0) com zoom 2
 
@@ -21,6 +26,8 @@ var cidade;
 var resposta;
 
 var type;
+
+var points = 0;
 
 var lat = 0;
 var lng = 0;
@@ -69,6 +76,7 @@ function carregarSlider() {
   advanceButton.style.display = "none";
   cidadeDiv.style.display = "none";
   answerCard.style.display = "none";
+  resultCard.style.display = "none";
   if (modo != null) {
     const challenges = modo.challenges;
     type = 1;
@@ -112,73 +120,124 @@ function carregarSlider() {
 
 // AVANÇAR ENTRE AS PARTES DOS DESAFIOS
 async function advance(event) {
-  //console.log(type);
-  if (type == 1) {
+  console.log(type);
+  if (type === 1) {
     if (lat != 0 && lng != 0) {
+      var correct = false;
+
+      try {
+        // Obter a cidade do local do desafio atual
+        const attemptCity = await getCityFromCoordinates(lat, lng);
+        const answerCity = await getCityFromCoordinates(
+          currentChallenge.mapChallenge.lat,
+          currentChallenge.mapChallenge.long
+        );
+        console.log(`Attempt: ${attemptCity}, Answer: ${answerCity}`);
+        // Exibir os resultados no HTML
+        if (answerCity === attemptCity) {
+          correct = true;
+        } else {
+          resultPoints.innerText = "Resultado: " + answerCity;
+          correct = false;
+        }
+      } catch (error) {
+        console.error("Erro ao obter a cidade:", error);
+      }
       mapSection.style.display = "none";
       const quiz = currentChallenge.quiz;
       cidadeDiv.style.display = "none";
-      criarQuiz(quiz);
-      advanceButton.style.display = "none";
-      type = 2;
+      resultCard.style.display = "block";
+      if (correct === true) {
+        resultImg.src = "../images/icons/result.png";
+        resultText.innerText = "Correto!";
+        resultText.style.color = "#19b621";
+        resultPoints.innerText = "+500 pontos";
+        resultCard.style.backgroundColor = "#bcfaca6c";
+        points = points + 500;
+      } else {
+        resultImg.src = "../images/icons/wrong.png";
+        resultCard.style.backgroundColor = "#fca6bc6c";
+        resultText.innerText = "Errou! Que pena.";
+        resultText.style.color = "#8a0707";
+        resultPoints.style.fontWeight = "400";
+      }
+      type = 10;
     } else {
       window.alert("Selecione o local no mapa!");
     }
-  } else if (type == 2) {
+  } else if (type === 10) {
+    resultCard.style.display = "none";
+    const quiz = currentChallenge.quiz;
+    criarQuiz(quiz);
+    advanceButton.style.display = "none";
+    type = 2;
+    console.log("type 2 = " + type);
+  } else if (type === 2) {
+    type = 20;
     quizCont.style.display = "none";
-    const dataChallenge = currentChallenge.dataChallenge;
-    criarDataChallenge(dataChallenge);
-    type = 3;
-  } else if (type == 3) {
-    if (!date || !date.value) {
-      window.alert("Selecione uma data!");
-      return;
-    }
-    type = 4;
-
-    const mapAttempt = document.getElementById("map-attempt");
-    const mapAnswer = document.getElementById("map-answer");
-
-    try {
-      // Obter a cidade do local do desafio atual
-      const attemptCity = await getCityFromCoordinates(lat, lng);
-      const answerCity = await getCityFromCoordinates(
-        currentChallenge.mapChallenge.lat,
-        currentChallenge.mapChallenge.long
-      );
-
-      console.log(`Attempt: ${attemptCity}, Answer: ${answerCity}`);
-
-      // Exibir os resultados no HTML
-      mapAnswer.innerText = answerCity;
-      mapAttempt.innerText = attemptCity;
-    } catch (error) {
-      console.error("Erro ao obter a cidade:", error);
-      mapAnswer.innerText = "Erro ao obter a cidade correta";
-      mapAttempt.innerText = "Erro ao obter sua tentativa";
-    }
-    if (currentChallengeIndex + 1 >= modo.challenges.length) {
-      advanceButton.textContent = "FINALIZAR";
-    }
-
-    const quizAttempt = document.getElementById("quiz-attempt");
-    const quizAnswer = document.getElementById("quiz-answer");
+    resultCard.style.display = "block";
+    console.log("executou");
     const options = [
       currentQuiz.opcao1,
       currentQuiz.opcao2,
       currentQuiz.opcao3,
       currentQuiz.opcao4,
     ];
-    quizAttempt.innerText = options[selecionado - 1];
-    quizAnswer.innerText = options[currentQuiz.resposta];
+
+    if (currentQuiz.resposta === selecionado - 1) {
+      resultImg.src = "../images/icons/result.png";
+      resultText.innerText = "Correto!";
+      resultText.style.color = "#19b621";
+      resultPoints.innerText = "+250 pontos";
+      resultCard.style.backgroundColor = "#bcfaca6c";
+      points = points + 250;
+    } else {
+      resultImg.src = "../images/icons/wrong.png";
+      resultCard.style.backgroundColor = "#fca6bc6c";
+      resultText.innerText = "Errou! Que pena.";
+      resultText.style.color = "#8a0707";
+      resultPoints.style.fontWeight = "400";
+      resultPoints.innerText = "Resultado: " + options[currentQuiz.resposta];
+    }
+    //const dataChallenge = currentChallenge.dataChallenge;
+    //criarDataChallenge(dataChallenge);
+  } else if (type === 20) {
+    //advanceButton.style.display = "none";
+    resultCard.style.display = "none";
+    type = 3;
+    const dataChallenge = currentChallenge.dataChallenge;
+    criarDataChallenge(dataChallenge);
+  } else if (type === 3) {
+    if (!date || !date.value) {
+      window.alert("Selecione uma data!");
+      return;
+    }
+    type = 30;
+
     dataCont.style.display = "none";
-    answerCard.style.display = "flex";
+    resultCard.style.display = "block";
 
     const dateAttempt = document.getElementById("date-attempt");
     const dateAnswer = document.getElementById("date-answer");
 
-    dateAnswer.innerText = currentChallenge.dataChallenge.data;
-    dateAttempt.innerText = date.value;
+    if (currentChallenge.dataChallenge.data === date.value) {
+      resultImg.src = "../images/icons/result.png";
+      resultText.innerText = "Correto!";
+      resultText.style.color = "#19b621";
+      resultPoints.innerText = "+750 pontos";
+      resultCard.style.backgroundColor = "#bcfaca6c";
+      points = points + 750;
+    } else {
+      resultImg.src = "../images/icons/wrong.png";
+      resultCard.style.backgroundColor = "#fca6bc6c";
+      resultText.innerText = "Errou! Que pena.";
+      resultText.style.color = "#8a0707";
+      resultPoints.style.fontWeight = "400";
+
+      const [ano, mes, dia] = currentChallenge.dataChallenge.data.split("-");
+      const dataFormatada = `${dia}/${mes}/${ano}`;
+      resultPoints.innerText = "Resultado: " + dataFormatada;
+    }
   } else {
     currentChallengeIndex++;
     if (currentChallengeIndex < modo.challenges.length) {

@@ -2,16 +2,16 @@
     "modos": [
       {
         "modo": "Maravilhas do Mundo Moderno",
-        "imageTitle": "../images/game1/cristo1.jpg",
-        "desc": "Descrição do modo 1",
-        "quantidade": 2,
+        "imageTitle": "../images/modos/maravilhas/desafio1/cristo1.jpg",
+        "desc": "Advinhe quais são as maravilhas do mundo e resolva seus desafios.",
+        "quantidade": 3,
         "nivel": 1,
         "challenges": [
           {
             "mapChallenge": {
-              "image1": "../images/game1/cristo1.jpg",
-              "image2": "../images/game1/cristo3.jpg",
-              "image3": "../images/game1/cristo1.jpg",
+              "image1": "../images/modos/maravilhas/desafio1/cristo1.jpg",
+              "image2": "../images/modos/maravilhas/desafio1/cristo2.jpg",
+              "image3": "../images/modos/maravilhas/desafio1/cristo3.jpg",
               "lat": -22.951916,
               "long": -43.210466
             },
@@ -25,28 +25,49 @@
             },
             "dataChallenge": {
               "perg": "Quando foi inaugrada?",
-              "data": "2025-01-02"
+              "data": "1931-10-12"
             }
           },
           {
             "mapChallenge": {
-                "image1": "../images/game1/cristo1.jpg",
-                "image2": "../images/game1/cristo3.jpg",
-                "image3": "../images/game1/cristo1.jpg",
-                "lat": -23.55052,
-                "long": -46.633308
+              "image1": "../images/modos/maravilhas/desafio2/tower1.jpg",
+              "image2": "../images/modos/maravilhas/desafio2/tower1.jpg",
+              "image3": "../images/modos/maravilhas/desafio2/tower1.jpg",
+                "lat": 48.858370,
+                "long": 2.294481
               },
             "quiz": {
-              "perg": "Qual é a capital da França?",
-              "opcao1": "Berlim",
-              "opcao2": "Paris",
-              "opcao3": "Roma",
-              "opcao4": "Madrid",
-              "resposta": 1
+              "perg": "Quantas pessoas visitam a Torre anualmente?",
+              "opcao1": "5 milhões",
+              "opcao2": "7 milhões",
+              "opcao3": "6 milhões",
+              "opcao4": "4 milhões",
+              "resposta": 1 
             },
             "dataChallenge": {
               "perg": "Quando foi inaugrada?",
-              "data": "2025-01-02"
+              "data": "1889-03-31"
+            }
+          },
+          {
+            "mapChallenge": {
+              "image1": "../images/modos/maravilhas/desafio3/muralha1.jpg",
+              "image2": "../images/modos/maravilhas/desafio3/muralha2.jpg",
+              "image3": "../images/modos/maravilhas/desafio3/muralha3.jpg",
+                "lat": 40.431908,
+                "long": 116.570375
+              },
+            "quiz": {
+              "perg": "Para que foi criado a muralha da China?",
+              "opcao1": "Servir como barreira natural para rios e lagos",
+              "opcao2": "Criar uma fronteira comercial para o controle de mercadorias",
+              "opcao3": "Separar diferentes dinastias chinesas",
+              "opcao4": "Impedir invasões inimigas",
+              "resposta": 3 
+            },
+            "dataChallenge": {
+              "perg": "Quando foi declada uma maravilha do mundo moderno?",
+              "data": "2007-07-07"
             }
           }
         ]

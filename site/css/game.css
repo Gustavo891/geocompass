@@ -10,6 +10,42 @@
   font-weight: bold;
 }
 
+#result {
+  background-color: #bcfaca6c;
+  padding: 40px;
+  width: 500px;
+  height: auto;
+  border-radius: 40px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 4px 6px rgba(0, 0, 0, 0.1);
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+#result img {
+  width: 200px;
+  border-radius: 50%;
+  padding: 0px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15), 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#result #result-text {
+  font-family: Fira Sans;
+  font-weight: 800;
+  font-size: 60px;
+  color: #8a0707;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  margin-bottom: 0;
+}
+
+#result #result-points {
+  margin-top: 10px;
+  font-family: Fira Sans;
+  font-weight: 800;
+  font-size: 40px;
+}
+
 .game-section h1 {
   font-family: Fira Sans;
   font-weight: 500;
@@ -128,10 +164,11 @@
   font-family: Fira Sans;
   font-weight: 500;
   width: 80%;
+  padding: 10px 20px 10px 20px;
   background-color: rgb(15, 75, 30);
   color: rgb(255, 255, 255);
   height: 50px;
-  border-radius: 50px;
+  border-radius: 30px;
   align-content: center;
   margin-bottom: 20px;
 }
