@@ -1,6 +1,7 @@
 {
     "modos": [
       {
+        "id": "maravilhasdomundo1",
         "modo": "Maravilhas do Mundo Moderno",
         "imageTitle": "../images/modos/maravilhas/desafio1/cristo1.jpg",
         "desc": "Advinhe quais são as maravilhas do mundo e resolva seus desafios.",

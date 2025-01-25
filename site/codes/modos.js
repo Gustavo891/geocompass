@@ -55,21 +55,24 @@ function renderModos(modosPorNivel) {
         const questionsDiv = document.createElement("div");
         questionsDiv.classList.add("questions");
 
-        const questionImg = document.createElement("img");
-        questionImg.classList.add("icon");
-        questionImg.src = "../images/icons8-questionário-50 (2).png"; // Caminho do ícone
-        questionImg.alt = "Ícone de questões";
+        if (localStorage.getItem(`points_${modo.id}`)) {
+          const questionImg = document.createElement("img");
+          questionImg.classList.add("icon");
+          questionImg.src = "../images/icons/star.png"; // Caminho do ícone
+          questionImg.alt = "Resultado";
 
-        const questionText = document.createElement("h2");
-        questionText.textContent = `${modo.quantidade}`; // Número de questões do modo
+          const valor = localStorage.getItem(`points_${modo.id}`);
 
-        questionsDiv.appendChild(questionImg);
-        questionsDiv.appendChild(questionText);
+          const questionText = document.createElement("h2");
+          questionText.textContent = valor; // Número de questões do modo
+
+          questionsDiv.appendChild(questionImg);
+          questionsDiv.appendChild(questionText);
+        }
 
         // Criar o link para a imagem do modo
         const link = document.createElement("a");
         link.href = "game.html"; // Página para onde irá ao clicar
-      
 
         // Armazenar o objeto 'modo' no localStorage ao clicar
         link.addEventListener("click", function () {

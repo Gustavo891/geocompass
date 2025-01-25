@@ -243,6 +243,7 @@ async function advance(event) {
     if (currentChallengeIndex < modo.challenges.length) {
       carregarSlider();
     } else {
+      localStorage.setItem(`points_${modo.id}`, points);
       window.location.href = "modos.html";
     }
   }
