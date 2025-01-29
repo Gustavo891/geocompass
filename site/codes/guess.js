@@ -199,6 +199,8 @@ var countriesFlags = {
     "Zambia": { "mini": "http://flags.fmcdn.net/data/flags/mini/zm.png", "normal": "http://flags.fmcdn.net/data/flags/normal/zm.png" },
     "Zimbabwe": { "mini": "http://flags.fmcdn.net/data/flags/mini/zw.png", "normal": "http://flags.fmcdn.net/data/flags/normal/zw.png" }
 };
+const inputBox = document.querySelector('.inputbox');
+const searchB = document.querySelector('.search-box');
 
 const populacao = document.querySelector('.populacaoTexto');
 const dinheiro = document.querySelector('.dinheiroTexto');
@@ -248,31 +250,28 @@ function loadHighScore() {
 
 loadHighScore();
 
-// Função para buscar dados do país e lidar com erros de forma recursiva
-function fetchCountryDataWithRetry(countryNames, retries = 3) {
+function fetchCountryDataWithRetry(countryNames, retries = 90) {
     const randomCountry = countryNames[Math.floor(Math.random() * countryNames.length)];
     selectedCountry = randomCountry;
+    searchB.style.display = "none";
     return fetchCountryData(randomCountry)
         .then(data => {
-            return data; // Retorna os dados para poderem ser usados em outra parte do código
+            searchB.style.display = "block";
+            return data; 
         })
         .catch(error => {
             console.error(`Erro ao buscar dados do país ${randomCountry}:`, error);
 
-            // Verificar se há tentativas restantes
             if (retries > 0) {
-                // Executar novamente a função com uma tentativa a menos
                 return fetchCountryDataWithRetry(countryNames, retries - 1);
             } else {
-                // Caso não haja mais tentativas, lançar o erro novamente
                 throw new Error('Não foi possível obter os dados do país após várias tentativas.');
             }
         });
 }
 
-// Função para buscar dados do país
 function fetchCountryData(countryName) {
-    return fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true`)
+    return fetch(`https://restcountries.com/v3.1/name/${countryName}?fullText=true` )
         .then(response => {
             if (!response.ok) {
                 throw new Error("Country data not found");
@@ -284,7 +283,6 @@ function fetchCountryData(countryName) {
         });
 }
 
-// Exemplo de uso:
 fetchCountryDataWithRetry(countryNames)
     .then(data => {
         // Exemplo de manipulação dos dados recebidos
@@ -313,7 +311,6 @@ fetchCountryDataWithRetry(countryNames)
 
 
 const resultsBox = document.querySelector(".result-box")
-const inputBox = document.querySelector(".inputbox");
 
 inputBox.onkeyup = function () {
     let result = [];
@@ -321,7 +318,6 @@ inputBox.onkeyup = function () {
     if (input.length) {
         result = Object.keys(countriesFlags).filter((country) => {
             const countryData = countriesFlags[country];
-            // Verifica se o alias existe e se a entrada corresponde ao alias ou ao nome do país
             return (countryData.alias && countryData.alias.toLowerCase().includes(input)) ||
                 country.toLowerCase().includes(input);
         });
@@ -362,10 +358,8 @@ const vidasCard = document.querySelector('.vidas');
 const cards = document.querySelector('.cards');
 const pesquisa = document.querySelector('#pesquisa');
 
-// Função para verificar se o país digitado é o correto
 function search() {
     if (inputBox.value == selectedCountry) {
-        // Caso o jogador tenha acertado
         resultado.style.display = 'flex';
         pontos++;
         novoJogo();
@@ -375,22 +369,22 @@ function search() {
         switch (vidas) {
             case 4:
                 continente.style.opacity = 100;
-                vida5.src = '../assets/images/vida2.png'
+                vida5.src = '../images/assets/images/vida2.png'
                 break;
             case 3:
                 lingua.style.opacity = 100;
-                vida4.src = '../assets/images/vida2.png'
+                vida4.src = '../images/assets/images/vida2.png'
                 break;
             case 2:
                 capital.style.opacity = 100;
-                vida3.src = '../assets/images/vida2.png'
+                vida3.src = '../images/assets/images/vida2.png'
                 break;
             case 1:
                 dinheiro.style.opacity = 100;
-                vida2.src = '../assets/images/vida2.png'
+                vida2.src = '../images/assets/images/vida2.png'
                 break;
             default:
-                vida1.src = '../assets/images/vida2.png'
+                vida1.src = '../images/assets/images/vida2.png'
                 vidasCard.style.display = 'none';
                 cards.style.display = 'none';
                 pesquisa.style.display = 'none';
@@ -404,18 +398,16 @@ function search() {
     inputBox.value = '';
 }
 
-// Função para iniciar um novo jogo
 function novoJogo() {
     pontoTexto.textContent = pontos;
     resultado.style.display = 'none'; // Esconde o resultado anterior, se visível
-    const inputBox = document.querySelector('.inputbox');
     inputBox.value = ''; // Limpa o campo de entrada
     selectedCountry = ''; // Reseta o país selecionado
-    vida5.src = '../assets/images/vida1.png'
-    vida4.src = '../assets/images/vida1.png'
-    vida3.src = '../assets/images/vida1.png'
-    vida2.src = '../assets/images/vida1.png'
-    vida1.src = '../assets/images/vida1.png'
+    vida5.src = '../images/assets/images/vida1.png'
+    vida4.src = '../images/assets/images/vida1.png'
+    vida3.src = '../images/assets/images/vida1.png'
+    vida2.src = '../images/assets/images/vida1.png'
+    vida1.src = '../images/assets/images/vida1.png'
     continente.style.opacity = 0;
     lingua.style.opacity = 0;
     capital.style.opacity = 0;
@@ -425,10 +417,8 @@ function novoJogo() {
     pesquisa.style.display = 'flex';
     ponto.style.display = 'flex';
     perdeuDiv.style.display = 'none'; // Exibe a div "perdeu"
-    // Chama a função para buscar dados de um novo país
     fetchCountryDataWithRetry(countryNames)
         .then(data => {
-            // Exemplo de manipulação dos dados recebidos
             populacao.textContent = parseInt(data.population).toLocaleString('pt-BR');
 
             if (data && data.continents && Array.isArray(data.continents)) {
@@ -445,10 +435,8 @@ function novoJogo() {
             const currencySymbol = data.currencies[Object.keys(data.currencies)[0]].symbol;
             dinheiro.textContent = currencySymbol.toUpperCase();
 
-            // Reinicia o processo de pesquisa se o jogador desejar
         })
         .catch(error => {
             console.error('Não foi possível obter os dados do país após várias tentativas:', error);
-            // Aqui você pode lidar com o erro final, exibindo uma mensagem de erro na página, por exemplo
         });
 }
