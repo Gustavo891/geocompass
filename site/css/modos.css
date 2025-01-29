@@ -2,6 +2,31 @@
   box-sizing: border-box;
 }
 
+.locked .lock-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px; /* Tamanho ajustado do ícone */
+  height: 24px; /* Tamanho ajustado do ícone */
+  transform: translate(-50%, -50%); /* Centraliza o ícone no meio da imagem */
+  opacity: 0.7;
+  pointer-events: none; /* Evita que o ícone interfira no clique */
+}
+
+.locked img {
+  filter: grayscale(100%); /* Torna a imagem em tons de cinza */
+  opacity: 0.5; /* Reduz a opacidade da imagem */
+}
+
+.locked {
+  position: relative;
+  pointer-events: none; /* Desabilita o clique */
+}
+
+.locked:hover .lock-icon {
+  opacity: 1; /* Aumenta a visibilidade do cadeado ao passar o mouse */
+}
+
 .container {
   display: flex;
   max-width: 1400px;

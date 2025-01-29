@@ -74,6 +74,15 @@ nav img {
   color: white;
   border-radius: 32px;
 }
+.banner2 {
+  background-image: url("../images/image.jpg");
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+  border-radius: 32px;
+}
 
 .banner-content h1 {
   font-size: 36px;

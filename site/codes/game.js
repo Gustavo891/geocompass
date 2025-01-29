@@ -7,6 +7,7 @@ const cidadeElement = document.getElementById("cidade-info");
 const answerCard = document.getElementById("answer");
 const date = document.getElementById("data-response");
 const resultCard = document.getElementById("result");
+const mapText = document.getElementById('map-local');
 
 const resultImg = document.getElementById("result-img");
 const resultText = document.getElementById("result-text");
@@ -106,6 +107,7 @@ function carregarSlider() {
 
       // Acessando as imagens do mapChallenge
       const mapChallenge = currentChallenge.mapChallenge;
+      mapText.innerText = mapChallenge.message;
       const image1 = mapChallenge.image1;
       const image2 = mapChallenge.image2;
       const image3 = mapChallenge.image3;

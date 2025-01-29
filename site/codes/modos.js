@@ -30,6 +30,8 @@ async function loadGameModes() {
 function renderModos(modosPorNivel) {
   const container = document.querySelector(".container");
 
+  let nivelDesbloqueado = 1; // Inicialmente, apenas o nível 1 está desbloqueado
+
   Object.keys(modosPorNivel)
     .sort((a, b) => a - b) // Ordenar os níveis em ordem crescente
     .forEach((nivel) => {
@@ -68,16 +70,30 @@ function renderModos(modosPorNivel) {
 
           questionsDiv.appendChild(questionImg);
           questionsDiv.appendChild(questionText);
+
+          // Atualizar nível desbloqueado
+          if (nivel == nivelDesbloqueado && valor >= modo.quantidade) {
+            nivelDesbloqueado = parseInt(nivel) + 1;
+          }
         }
 
         // Criar o link para a imagem do modo
         const link = document.createElement("a");
         link.href = "game.html"; // Página para onde irá ao clicar
-
-        // Armazenar o objeto 'modo' no localStorage ao clicar
-        link.addEventListener("click", function () {
-          localStorage.setItem("modo", JSON.stringify(modo)); // Salva o objeto no localStorage
-        });
+        if (nivel > nivelDesbloqueado) {
+          link.classList.add("locked"); // Adiciona a classe de bloqueio
+          link.addEventListener("click", (event) => {
+            event.preventDefault(); // Bloqueia o clique
+            alert("Complete o nível anterior para desbloquear este modo!");
+          });
+        
+          
+        } else {
+          // Armazenar o objeto 'modo' no localStorage ao clicar
+          link.addEventListener("click", function () {
+            localStorage.setItem("modo", JSON.stringify(modo)); // Salva o objeto no localStorage
+          });
+        }
 
         const img = document.createElement("img");
         img.src = modo.imageTitle;
@@ -105,6 +121,7 @@ function renderModos(modosPorNivel) {
       container.appendChild(section);
     });
 }
+
 
 // Carregar os modos ao carregar a página
 document.addEventListener("DOMContentLoaded", loadGameModes);

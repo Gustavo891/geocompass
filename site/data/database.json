@@ -10,6 +10,7 @@
         "challenges": [
           {
             "mapChallenge": {
+              "message": "Onde se localize essa maravilha do mundo?",
               "image1": "../images/modos/maravilhas/desafio1/cristo1.jpg",
               "image2": "../images/modos/maravilhas/desafio1/cristo2.jpg",
               "image3": "../images/modos/maravilhas/desafio1/cristo3.jpg",
@@ -31,6 +32,7 @@
           },
           {
             "mapChallenge": {
+              "message": "Onde se localize essa maravilha do mundo?",
               "image1": "../images/modos/maravilhas/desafio2/tower1.jpg",
               "image2": "../images/modos/maravilhas/desafio2/tower1.jpg",
               "image3": "../images/modos/maravilhas/desafio2/tower1.jpg",
@@ -52,6 +54,7 @@
           },
           {
             "mapChallenge": {
+              "message": "Onde se localize essa maravilha do mundo?",
               "image1": "../images/modos/maravilhas/desafio3/muralha1.jpg",
               "image2": "../images/modos/maravilhas/desafio3/muralha2.jpg",
               "image3": "../images/modos/maravilhas/desafio3/muralha3.jpg",
@@ -69,6 +72,60 @@
             "dataChallenge": {
               "perg": "Quando foi declada uma maravilha do mundo moderno?",
               "data": "2007-07-07"
+            }
+          }
+        ]
+      },
+      {
+        "id": "guerrafria1",
+        "modo": "Fatos sobre a Guerra Fria",
+        "imageTitle": "../images/modos/guerrafria/guerrafriabanner.jpg",
+        "desc": "Explore por diversos fatos e assunstos históricos da Guerra Fria.",
+        "quantidade": 2,
+        "nivel": 2,
+        "challenges": [
+          {
+            "mapChallenge": {
+              "message": "Onde foi o local de lançamento da Apollo 11?",
+              "image1": "../images/modos/guerrafria/desafio1/apollo11_1.jpg",
+              "image2": "../images/modos/guerrafria/desafio1/apollo11_2.jpg",
+              "image3": "../images/modos/guerrafria/desafio1/apollo11_3.jpg",
+              "lat": 28.386902,
+              "long": -80.601555
+            },
+            "quiz": {
+              "perg": "Quem foi a primeira pessoa a pisar na Lua?",
+              "opcao1": "Neil Armstrong",
+              "opcao2": "Bull Aldrin",
+              "opcao3": "Michael Collins",
+              "opcao4": "Yuri Gagarin",
+              "resposta": 0
+            },
+            "dataChallenge": {
+              "perg": "Quando foi o lançamento da Apollo 11?",
+              "data": "1969-07-16"
+            }
+          },
+          {
+            "mapChallenge": {
+              "message": "Onde se localizava o Muro de Berlim?",
+              "image1": "../images/modos/guerrafria/desafio2/muro1.jpg",
+              "image2": "../images/modos/guerrafria/desafio2/muro3.jpg",
+              "image3": "../images/modos/guerrafria/desafio2/muro2.webp",
+                "lat": 52.520008,
+                "long": 13.404954
+              },
+            "quiz": {
+              "perg": "O que simbolizava o Muro de Berlim durante a Guerra Fria?",
+              "opcao1": "A união entre países socialistas e capitalistas",
+              "opcao2": "A divisão entre Oriente e Ocidente",
+              "opcao3": "A vitória do capitalismo sobre o socialismo",
+              "opcao4": "A separação da Alemanha em várias regiões",
+              "resposta": 1 
+            },
+            "dataChallenge": {
+              "perg": "Quando o Muro de Berlim foi derrubado?",
+              "data": "1989-11-09"
             }
           }
         ]
